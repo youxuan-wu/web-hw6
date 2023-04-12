@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style type="text/css">
+		.highcharts-figure,
+		.highcharts-data-table table {
+		  min-width: 360px;
+		  max-width: 800px;
+		  margin: 1em auto;
+		}
+
+		.highcharts-data-table table {
+		  font-family: Verdana, sans-serif;
+		  border-collapse: collapse;
+		  border: 1px solid #ebebeb;
+		  margin: 10px auto;
+		  text-align: center;
+		  width: 100%;
+		  max-width: 500px;
+		}
+
+		.highcharts-data-table caption {
+		  padding: 1em 0;
+		  font-size: 1.2em;
+		  color: #555;
+		}
+
+		.highcharts-data-table th {
+		  font-weight: 600;
+		  padding: 0.5em;
+		}
+
+		.highcharts-data-table td,
+		.highcharts-data-table th,
+		.highcharts-data-table caption {
+		  padding: 0.5em;
+		}
+
+		.highcharts-data-table thead tr,
+		.highcharts-data-table tr:nth-child(even) {
+		  background: #f8f8f8;
+		}
+
+		.highcharts-data-table tr:hover {
+		  background: #f1f7ff;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+	<figure class="highcharts-figure">
+	  <div id="container"></div>
+	  <p class="highcharts-description">
+	  	<center>
+	  		台日韓在2016年～2021年中有多少旅客到訪
+	  	</center>
+	  </p>
+	</figure>
+
+	<script type="text/javascript">
+		Highcharts.chart('container', {
+
+		  title: {
+		    text: '台日韓2016！2021年入境旅客統計',
+		    align: 'left'
+		  },
+
+		  subtitle: {
+		    text: 'Source: UNWTO, 交通部觀光局',
+		    align: 'left'
+		  },
+
+		  yAxis: {
+		    title: {
+		      text: '入境觀光客人數(百萬)'
+		    }
+		  },
+
+		  xAxis: {
+		    accessibility: {
+		      rangeDescription: '年度: 2016 to 2021'
+		    }
+		  },
+
+		  legend: {
+		    layout: 'vertical',
+		    align: 'right',
+		    verticalAlign: 'middle'
+		  },
+
+		  plotOptions: {
+		    series: {
+		      label: {
+		        connectorAllowed: false
+		      },
+		      pointStart: 2016
+		    }
+		  },
+
+		  series: [{
+		    name: '台灣',
+		    data: [10.7, 10.7, 11.1, 11.9, 1.4, 0.1]
+		  }, {
+		    name: '南韓',
+		    data: [17.2, 13.3, 15.3, 17.5, 2.5, 1.0]
+		  }, {
+		    name: '日本',
+		    data: [24.0, 28.7, 31.2, 31.9, 4.1, 0.2]
+		  }
+		  ],
+
+		  responsive: {
+		    rules: [{
+		      condition: {
+		        maxWidth: 500
+		      },
+		      chartOptions: {
+		        legend: {
+		          layout: 'horizontal',
+		          align: 'center',
+		          verticalAlign: 'bottom'
+		        }
+		      }
+		    }]
+		  }
+
+		});
+	</script>
+
+
+</body>
+</html>
